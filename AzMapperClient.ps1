@@ -1,6 +1,6 @@
 #########################
-$AutoMapURL = "https://azmapper.azurewebsites.net/api/AzOneMap"
-$AutomapAPIKey = "TheAPIKeyFromTheAppAlsoKnownAsTheCode"
+$AutoMapURL = "https://azmapper.azurewebsites.net/api/AzOneMap" # replace this with your Function App's URL from the Code + Test screen > Get function URL
+$AutomapAPIKey = "TheAPIKeyFromTheAppAlsoKnownAsTheCode" # replace this with the Code portion from Code + Test > Get function URL
 #########################
  
 write-host "Grabbing OneDrive info from registry" -ForegroundColor Green
@@ -20,7 +20,7 @@ foreach ($Team in $ListOfTeams) {
     }
     else {
         write-host "Mapping Team: $Sitename" -ForegroundColor Green
-        Start-Process "odopen://sync/?siteId=$($team.SiteID)&webId=$($team.webid)&amp;listId=$($team.ListID)&userEmail=$upn&webUrl=$($team.Weburl)&webtitle=$($team.Webtitle)"
+        Start-Process "odopen://sync/?siteId=$($team.SiteID)&webId=$($team.webid)&listId=$($team.ListID)&userEmail=$upn&webUrl=$($team.Weburl)&webtitle=$($team.Webtitle)"
         start-sleep 5
     }
 }
